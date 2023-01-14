@@ -17,13 +17,9 @@ async function getImgSrcs() {
   try {
     const response = await axios.get(websiteLink);
     const htmlContent = cheerio.load(response.data);
-    const imageSrcs = htmlContent('section').html();
-    // src = imageSrcs(this).getElementById(img).text();
-    // links.push({ src });
-    htmlContent(imageSrcs).each(function () {
-      const href = (this.href = htmlContent(this).find('div a').text());
-      const src = (this.src = htmlContent(this).find('div img').text());
-      links.push({ href, src });
+    htmlContent('img').each(function () {
+      const src = htmlContent(this).attr('src');
+      links.push({ src });
     });
     console.log(links);
   } catch (err) {
