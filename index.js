@@ -4,7 +4,7 @@ import axios from 'axios';
 import * as cheerio from 'cheerio';
 
 // Create a folder
-const folderName = '/Users/Alina/projects/node-meme-scraper/memes';
+const folderName = './memes';
 if (!fs.existsSync(folderName)) {
   fs.mkdirSync(folderName);
 }
@@ -28,7 +28,7 @@ async function getImgSrcs() {
           url: firstTenLinks[i].src,
           responseType: 'stream',
         }).then(function (file) {
-          const path = '/Users/Alina/projects/node-meme-scraper/memes/0';
+          const path = './memes/0';
           const newPath = path.concat(i + 1, '.jpg');
           file.data.pipe(fs.createWriteStream(newPath));
         });
