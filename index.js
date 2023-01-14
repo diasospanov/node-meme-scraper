@@ -1,8 +1,7 @@
+// Import libraries
 import * as fs from 'node:fs';
 import axios from 'axios';
 import * as cheerio from 'cheerio';
-
-// import $ from 'jquery';
 
 // Create a folder
 const folderName = '/Users/Alina/projects/node-meme-scraper/memes';
